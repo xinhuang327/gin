@@ -86,21 +86,21 @@ func Default() *Engine {
 }
 
 func (engine *Engine) LoadHTMLGlob(pattern string) {
-	if gin_mode == debugCode {
-		engine.HTMLRender = render.HTMLDebug
-	} else {
-		templ := template.Must(template.ParseGlob(pattern))
-		engine.SetHTMLTemplate(templ)
-	}
+	// if gin_mode == debugCode {
+	// 	engine.HTMLRender = render.HTMLDebug
+	// } else {
+	templ := template.Must(template.ParseGlob(pattern))
+	engine.SetHTMLTemplate(templ)
+	// }
 }
 
 func (engine *Engine) LoadHTMLFiles(files ...string) {
-	if gin_mode == debugCode {
-		engine.HTMLRender = render.HTMLDebug
-	} else {
-		templ := template.Must(template.ParseFiles(files...))
-		engine.SetHTMLTemplate(templ)
-	}
+	// if gin_mode == debugCode {
+	// 	engine.HTMLRender = render.HTMLDebug
+	// } else {
+	templ := template.Must(template.ParseFiles(files...))
+	engine.SetHTMLTemplate(templ)
+	// }
 }
 
 func (engine *Engine) SetHTMLTemplate(templ *template.Template) {
